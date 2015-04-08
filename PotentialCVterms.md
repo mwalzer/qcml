@@ -1,0 +1,512 @@
+#potential CV terms as
+
+# Introduction #
+
+The list should be expanded like a real one. Ids though are subject to change due to sorting/hierarchy and other.
+
+# Details #
+
+```xml
+
+
+[Term]
+id: QC:0000001
+name: quality parameter
+def: "A quality parameter of some sort." [PXS:QC]
+
+[Term]
+id: QC:0000002
+name: run quality parameter
+def: "A run quality parameter of some sort." [PXS:QC]
+is_a: QC:0000001 ! quality parameter
+
+[Term]
+id: QC:0000003
+name: set quality parameter
+def: "A set quality parameter of some sort." [PXS:QC]
+is_a: QC:0000001 ! quality parameter
+
+[Term]
+id: MS:1000584
+name: mzML file
+def: "Proteomics Standards Inititative mzML file format." [PSI:MS]
+is_a: MS:1000560 ! mass spectrometer file format
+
+[Term]
+id: QC:0000004
+name: aquisition result details
+def: "The results (e.g. counts) of the aquisition step of a ms experiment." [PXS:QC]
+is_a: QC:0000001 ! quality parameter
+
+[Term]
+id: QC:0000005
+name: aquisition ranges
+def: "Contains the min/max RT and mass range boundaries used during aquisition." [PXS:QC]
+is_a: QC:0000002 ! aquisition result details
+
+[Term]
+id: QC:0000006
+name: min RT
+def: "Contains the actualmin RT occurrence in aquisition." [PXS:QC]
+is_a: QC:0000003 ! aquisition ranges
+
+[Term]
+id: QC:0000007
+name: max RT
+def: "Contains the actual max RT occurrence in aquisition." [PXS:QC]
+is_a: QC:0000003 ! aquisition ranges
+
+[Term]
+id: QC:0000008
+name: min MZ
+def: "Contains the actual min MZ occurrence in aquisition." [PXS:QC]
+is_a: QC:0000003 ! aquisition ranges
+
+[Term]
+id: QC:0000009
+name: max MZ
+def: "Contains the actual max MZ occurrence in aquisition." [PXS:QC]
+is_a: QC:0000003 ! aquisition ranges
+
+[Term]
+id: QC:0000010
+name: gradient min RT
+def: "Contains the min RT as set with the gradient used." [PXS:QC]
+is_a: QC:0000003 ! aquisition ranges
+
+[Term]
+id: QC:0000011
+name: gradient max RT
+def: "Contains the max RT as set with the gradient used." [PXS:QC]
+is_a: QC:0000003 ! aquisition ranges
+
+[Term]
+id: QC:0000012
+name: detection min MZ
+def: "Contains the min MZ as set in instrument detection range." [PXS:QC]
+is_a: QC:0000003 ! aquisition ranges
+
+[Term]
+id: QC:0000013
+name: detection max MZ
+def: "Contains the max MZ as set in instrument detection range." [PXS:QC]
+is_a: QC:0000003 ! aquisition ranges
+
+[Term]
+id: QC:0000014
+name: number of ms1 spectra
+def: "Contains the number of ms1 spectra recorded." [PXS:QC]
+is_a: QC:0000002 ! aquisition result details
+
+[Term]
+id: QC:0000015
+name: number of ms2 spectra
+def: "Contains the number of ms2 spectra recorded." [PXS:QC]
+is_a: QC:0000002 ! aquisition result details
+
+[Term]
+id: QC:0000016
+name: number of chromatograms
+def: "Contains the number of chromatograms recorded." [PXS:QC]
+is_a: QC:0000002 ! aquisition result details
+
+[Term]
+id: MS:1000927
+name: Ion injection time
+def: "The length of time spent filling an ion trapping device." [PSI:MS]
+xref: value-type:xsd\:float "The allowed value-type for this CV term."
+is_a: MS:1000503 ! scan attribute
+relationship: has_units UO:0000028 ! millisecond
+
+[Term]
+id: MS:1001249
+name: search input details
+def: "Details describing the search input." [PSI:PI]
+relationship: part_of MS:1001000 ! spectrum interpretation
+
+[Term]
+id: MS:1001011
+name: search database details
+def: "Details about the database searched." [PSI:PI]
+is_a: MS:1001249 ! search input details
+
+[Term]
+id: MS:1001013
+name: database name
+def: "The name of the search database (nr, SwissProt or est_human)." [PSI:PI]
+is_a: MS:1001011 ! search database details
+
+[Term]
+id: MS:1001014
+name: database local file path
+def: "OBSOLETE: Use attribute in mzIdentML instead. Local file path of the search database from the search engine's point of view." [PSI:PI]
+is_a: MS:1001011 ! search database details
+is_obsolete: true
+
+[Term]
+id: MS:1001015
+name: database original uri
+def: "URI, from where the search database was originally downloaded." [PSI:PI]
+xref: value-type:xsd\:anyURI "The allowed value-type for this CV term."
+is_a: MS:1001011 ! search database details
+
+[Term]
+id: MS:1001016
+name: database version
+def: "OBSOLETE: Use attribute in mzIdentML instead. Version of the search database ." [PSI:PI]
+is_a: MS:1001011 ! search database details
+is_obsolete: true
+
+[Term]
+id: MS:1001017
+name: database release date
+def: "OBSOLETE: Use attribute in mzIdentML instead. Release date of the search database." [PSI:PI]
+is_a: MS:1001011 ! search database details
+is_obsolete: true
+
+[Term]
+id: MS:1001018
+name: database type
+def: "Database containing amino acid or nucleic acid sequences." [PSI:PI]
+is_a: MS:1001011 ! search database details
+
+[Term]
+id: MS:1001019
+name: database filtering
+def: "Was there filtering used on the database." [PSI:PI]
+is_a: MS:1001011 ! search database details
+
+[Term]
+id: MS:1001020
+name: DB filter taxonomy
+def: "A taxonomy filter was to the database search." [PSI:PI]
+is_a: MS:1001511 ! Sequence database filter types
+
+[Term]
+id: MS:1001411
+name: search tolerance specification
+is_a: MS:1001249 ! search input details
+
+[Term]
+id: MS:1001412
+name: search tolerance plus value
+xref: value-type:xsd\:double "The allowed value-type for this CV term."
+is_a: MS:1001411 ! search tolerance specification
+relationship: has_units UO:0000166 ! parts per notation unit
+relationship: has_units UO:0000187 ! percent
+relationship: has_units UO:0000221 ! dalton
+
+[Term]
+id: MS:1001413
+name: search tolerance minus value
+xref: value-type:xsd\:double "The allowed value-type for this CV term."
+is_a: MS:1001411 ! search tolerance specification
+relationship: has_units UO:0000166 ! parts per notation unit
+relationship: has_units UO:0000187 ! percent
+relationship: has_units UO:0000221 ! dalton
+
+[Term]
+id: QC:0000017
+name: precursor ion tolerance
+def: "This paramter shows the precursor tolerance that was used for MS/MS identification." [PXS:QC]
+is_a: MS:1001411 ! search input details
+
+[Term]
+id: QC:0000018
+name: product ion tolerance
+def: "This paramter shows the product ion tolerance that was used for MS/MS identification." [PXS:QC]
+is_a: MS:1001411 ! search input details
+
+[Term]
+id: MS:1001842
+name: Peptide PSM count
+def: "The number of MS/MS spectra identified for this peptide in spectral counting." [PSI:PI]
+xref: value-type:xsd\:integer "The allowed value-type for this CV term."
+is_a: MS:1001805 ! quantification datatype
+
+[Term]
+id: MS:1001405
+name: Spectrum identification result details
+def: "This subsection describes terms which can describe details of spectrum identification results." [PSI:PI]
+relationship: part_of MS:1001000 ! spectrum interpretation
+
+[Term]
+id: QC:0000019
+name: total number of PSM
+def: "This number indicates the number of spectra that were given peptide annotations." [PXS:QC]
+is_a: MS:1001405 ! spectrum identification result details
+
+[Term]
+id: MS:1001105
+name: peptide result details
+def: "Peptide level information." [PSI:PI]
+is_a: MS:1001405 ! spectrum identification result details
+
+[Term]
+id: QC:0000020
+name: total number of identified peptides
+def: "This number indicates the number peptides that were identified." [PXS:QC]
+is_a: MS:1001405 ! spectrum identification result details
+
+[Term]
+id: QC:0000021
+name: total number of uniquely identified peptides
+def: "This number indicates the number peptides that were uniquely identified." [PXS:QC]
+is_a: MS:1001405 ! spectrum identification result details
+
+[Term]
+id: MS:1001085
+name: protein result details
+def: "Protein level information." [PSI:PI]
+is_a: MS:1001405 ! spectrum identification result details
+
+[Term]
+id: QC:0000022
+name: total number of identified proteins
+def: "This number indicates the number proteins that were identified." [PXS:QC]
+is_a: MS:1001405 ! spectrum identification result details
+
+[Term]
+id: QC:0000023
+name: total number of uniquely identified proteins
+def: "This number indicates the number proteins that were uniquely identified." [PXS:QC]
+is_a: MS:1001405 ! spectrum identification result details
+
+[Term]
+id: QC:0000024
+name: total number of missed cleavages
+def: "This number indicates the number missed cleavages that were identified." [PXS:QC]
+is_a: MS:1001405 ! spectrum identification result details
+
+[Term]
+id: QC:0000025
+name: total number of modified peptides
+def: "This number indicates the number modified peptide sequences that were identified." [PXS:QC]
+is_a: MS:1001405 ! spectrum identification result details
+
+[Term]
+id: QC:0000026
+name: id ratio
+def: "This ratio indicates the number of identified peptides vs. the number of recorded ms2 spectra." [PXS:QC]
+is_a: MS:1001405 ! spectrum identification result details
+
+[Term]
+id: QC:0000027
+name: mass accuracy
+def: "The values of overall mass accuracy." [PXS:QC]
+is_a: MS:1001105 ! peptide result details
+
+[Term]
+id: MS:1000014
+name: accuracy
+def: "Accuracy is the degree of conformity of a measured mass to its actual value." [PSI:MS]
+xref: value-type:xsd\:float "The allowed value-type for this CV term."
+is_a: MS:1000480 ! mass analyzer attribute
+relationship: has_units MS:1000040 ! m/z
+relationship: has_units UO:0000169 ! parts per million
+
+[Term]
+id: QC:0000028
+name: delta ppm
+def: "The deviation of the precursor ion mass and the theoretical mass of the matched identification." [PXS:QC]
+is_a: QC:0000025 ! mass accuracy
+relationship: has_units UO:0000169 ! parts per million
+
+[Term]
+id: QC:0000029
+name: mean delta ppm
+def: "The mean deviation of the precursor ion masses and the theoretical masses of the matched identifications." [PXS:QC]
+is_a: QC:0000025 ! mass accuracy
+relationship: has_units UO:0000169 ! parts per million
+
+[Term]
+id: QC:0000030
+name: median delta ppm
+def: "The median deviation of the precursor ion masses and the theoretical masses of the matched identifications." [PXS:QC]
+is_a: QC:0000025 ! mass accuracy
+relationship: has_units UO:0000169 ! parts per million
+
+[Term]
+id: QC:0000031
+name: ion current stability
+def: "These values give a indication of the ion current stability." [PXS:QC]
+is_a: QC:0000002 ! aquisition result details
+
+[Term]
+id: QC:0000032
+name: sum of tic
+def: "The sum of the tic of a run." [PXS:QC]
+is_a: QC:0000031 ! ion current stability
+
+[Term]
+id: QC:0000033
+name: percentage of tic slumps
+def: "The percentage of tic slumps below 10k." [PXS:QC]
+is_a: QC:0000031 ! ion current stability
+
+[Term]
+id: QC:0000034
+name: featurefinding result details
+def: "Feature level information." [PXS:QC]
+is_a: QC:0000001 ! quality parameter
+
+[Term]
+id: QC:0000035
+name: number of features
+def: "The number of features reported." [PXS:QC]
+is_a: QC:0000034 ! featurefinding result details
+
+[Term]
+id: QC:0000036
+name: value tables
+def: "A collection of values over either a run or several runs in a given interval." [PXS:QC]
+is_a: QC:0000001 ! quality parameter
+
+[Term]
+id: QC:0000037
+name: precursor tables
+def: "The tables of measured precursor ions over RT/mz." [PXS:QC]
+is_a: QC:0000004 ! value tables
+
+[Term]
+id: QC:0000038
+name: charge tables
+def: "The tables of measured spectra over RT/mz." [PXS:QC]
+is_a: QC:0000004 ! value tables
+
+[Term]
+id: QC:0000039
+name: total ion current tables
+def: "The tables of TIC over RT." [PXS:QC]
+is_a: QC:0000004 ! value tables
+is_a: QC:0000017 ! ion current stability
+
+[Term]
+id: QC:0000040
+name: delta ppm tables
+def: "The tables of delta ppm over RT/mz." [PXS:QC]
+is_a: QC:0000004 ! value tables
+is_a: MS:1001105 ! peptide result details
+
+[Term]
+id: QC:0000041
+name: feature tables
+def: "The tables of features over RT/mz." [PXS:QC]
+is_a: QC:0000004 ! value tables
+is_a: QC:0000034 ! featurefinding result details
+
+[Term]
+id: QC:0000042
+name: identification tables
+def: "The tables of features over RT/mz." [PXS:QC]
+is_a: QC:0000004 ! value tables
+is_a: QC:0000034 ! featurefinding result details
+
+[Term]
+id: QC:0000043
+name: min id numbers
+def: "The minimum of the value distribution of id numbers defined by the sets of ids." [PXS:QC]
+is_a: QC:0000003 ! set quality parameter
+
+[Term]
+id: QC:0000044
+name: max id numbers
+def: "The maximum of the value distribution of TIC sums defined by the sets tic sums." [PXS:QC]
+is_a: QC:0000003 ! set quality parameter
+
+[Term]
+id: QC:0000045
+name: Q1 id numbers
+def: "The Q1 (lower quartile) of the distribution of id numbers defined by the sets of ids." [PXS:QC]
+is_a: QC:0000003 ! set quality parameter
+
+[Term]
+id: QC:0000046
+name: Q2 id numbers
+def: "The Q2 (median) of the distribution of id numbers defined by the sets of ids." [PXS:QC]
+is_a: QC:0000003 ! set quality parameter
+
+[Term]
+id: QC:0000047
+name: Q3 id numbers
+def: "The Q3 (upper quartile) of the distribution of id numbers defined by the sets of ids." [PXS:QC]
+is_a: QC:0000003 ! set quality parameter
+
+[Term]
+id: QC:0000048
+name: min feature number
+def: "The minimum of the value distribution of id numbers defined by the sets of ids." [PXS:QC]
+is_a: QC:0000003 ! set quality parameter
+
+[Term]
+id: QC:0000049
+name: max feature number
+def: "The maximum of the value distribution of feature numbers defined by the sets feature numbers." [PXS:QC]
+is_a: QC:0000003 ! set quality parameter
+[Term]
+
+id: QC:0000050
+name: Q1 feature number
+def: "The Q1 (lower quartile) of the distribution of feature numbers defined by the sets feature numbers." [PXS:QC]
+is_a: QC:0000003 ! set quality parameter
+
+id: QC:0000051
+name: Q2 feature number
+def: "The Q2 (median) of the distribution of feature numbers defined by the sets feature numbers." [PXS:QC]
+is_a: QC:0000003 ! set quality parameter
+
+id: QC:0000052
+name: Q3 feature number
+def: "The Q3 (upper quartile) of the distribution of feature numbers defined by the sets feature numbers." [PXS:QC]
+is_a: QC:0000003 ! set quality parameter
+
+[Term]
+id: QC:0000053
+name: min ms2 number
+def: "The minimum of the value distribution of id numbers defined by the sets ms2 numbers." [PXS:QC]
+is_a: QC:0000003 ! set quality parameter
+
+[Term]
+id: QC:0000054
+name: max ms2 number
+def: "The maximum of the value distribution of ms1 numbers defined by the sets ms2 numbers." [PXS:QC]
+is_a: QC:0000003 ! set quality parameter
+[Term]
+
+id: QC:0000055
+name: Q1 ms2 number
+def: "The Q1 (lower quartile) of the distribution of ms2 numbers defined by the sets ms2 numbers." [PXS:QC]
+is_a: QC:0000003 ! set quality parameter
+
+id: QC:0000056
+name: Q2 ms2 number
+def: "The Q2 (median) of the distribution of id numbers defined by the sets ms2 numbers." [PXS:QC]
+is_a: QC:0000003 ! set quality parameter
+
+id: QC:0000057
+name: Q3 ms2 number
+def: "The Q3 (upper quartile) of the distribution of ms2 numbers defined by the sets ms2 numbers." [PXS:QC]
+is_a: QC:0000003 ! set quality parameter
+
+id: QC:0000058
+name: set name
+def: "The set name describing the set grouping." [PXS:QC]
+
+id: QC:0000059
+name: fractional masses
+def: "The fractional masses vs the measured masses." [PXS:QC]
+
+id: QC:0000060
+name: injection times
+def: "The injection times for the runs." [PXS:QC]
+
+id: QC:0000061
+name: mean injection time
+def: "The mean injection time for a run." [PXS:QC]
+
+
+...
+
+
+
+```

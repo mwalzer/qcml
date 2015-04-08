@@ -1,0 +1,17 @@
+# Introduction #
+
+This page will give you a guide for the quick start to quality control your own MS experiments with OpenMS/KNIME. Best keep this site open while you follow the few steps
+
+
+# Details #
+
+Add your content here.  Format your content with:
+  * get and install KNIME/OpenMS and plugins (illustrated guide [here](https://code.google.com/p/qcml/wiki/QCWorkflowsInKNIME))
+
+  * If you not already have, install ProteoWizard / ms-convert from [here](http://proteowizard.sourceforge.net) to convert your MS vendor specific RAW files as comprehensive input format for many analysis software packages.
+
+  * Start KNIME, open your QC workflow. If you do not have any, you can get one from the [download area](https://code.google.com/p/qcml/wiki/Downloads).
+
+  * Make sure, the input files are correct. And then run your workflow. ![https://qcml.googlecode.com/svn/trunk/website-images/check_file_inputs.jpg](https://qcml.googlecode.com/svn/trunk/website-images/check_file_inputs.jpg)
+
+  * Explore your qcML file by opening it in your browser (not! IE) or follow through by open the KNIME Report.

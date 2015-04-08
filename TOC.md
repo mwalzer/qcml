@@ -1,0 +1,18 @@
+# Navigation #
+  * [About](About.md)
+  * [QuickStart](QuickstartIntoQCwithQcML.md)
+  * [QC metrics](Metrics.md)
+    * [Basemetrics](Basemetrics.md)
+    * [NISTmetrics](NISTmetrics.md)
+    * [QCMetricControlByCV](QCMetricControlByCV.md)
+    * [DefineAMetric](DefineAMetric.md)
+  * [Format](Format.md)
+  * [Software](Software.md)
+  * [WorkflowIntegration](WorkflowIntegration.md)
+    * [ExampleKNIMEworkflows](ExampleKNIMEworkflows.md)
+    * [knime-metanodes-for-metrics]
+      * [SimpleQCWorkflowIDratio](SimpleQCWorkflowIDratio.md)
+      * [SimpleQCWorkflowFractionalmasses](SimpleQCWorkflowFractionalmasses.md)
+      * [SimpleQCWorkflowMassaccuracy](SimpleQCWorkflowMassaccuracy.md)
+      * [SimpleQCWorkflowTIC](SimpleQCWorkflowTIC.md)
+      * [SimpleQCWorkflowPreprocessing](SimpleQCWorkflowPreprocessing.md)

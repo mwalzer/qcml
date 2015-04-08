@@ -1,0 +1,1 @@
+![http://qcml.googlecode.com/svn/trunk/website-images/detailed_workflow_fractionalmasses.png](http://qcml.googlecode.com/svn/trunk/website-images/detailed_workflow_fractionalmasses.png)

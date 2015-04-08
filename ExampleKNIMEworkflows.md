@@ -1,0 +1,59 @@
+# Introduction #
+
+It is assumed that you came here by [QCWorkflowsInKNIME](QCWorkflowsInKNIME.md). If not, make sure you have all the steps explained there covered. Or just read along - it's a very visual guide ;)
+
+# Workflows #
+
+The first workflow will accustom you with QC workflows in KNIME. The second will give a more detailed view into qcML's capabilites, including a detailed (printable or web publishable) report.
+All KNIME metanodes and workflows are available from the [downloads](https://code.google.com/p/qcml/wiki/Downloads) page. You don't know, what a metanode is? Read along!
+
+## simple QC workflow ##
+
+Both workflows go through the same processes to compute the basic metrics for quality control. Hence, this part will not be repeated in the description of the detailed workflow.
+
+<a href='Hidden comment: 
+<img src="http://qcml.googlecode.com/svn/trunk/website-images/qc_workflow_knime_pt1.png" border="0" height="280" width="280"><img src="http://qcml.googlecode.com/svn/trunk/website-images/qc_workflow_knime_pt2.png" border="0" height="280" width="280">
+<img src="http://qcml.googlecode.com/svn/trunk/website-images/qc_workflow_knime_pt3.png" border="0" height="280" width="280"><img src="http://qcml.googlecode.com/svn/trunk/website-images/qc_workflow_knime_pt4.png" border="0" height="280" width="280">
+<img src="http://qcml.googlecode.com/svn/trunk/website-images/qc_workflow_knime_pt5.png" border="0" height="280" width="280"><img src="http://qcml.googlecode.com/svn/trunk/website-images/qc_workflow_knime_pt6.png" border="0" height="280" width="280">
+<img src="http://qcml.googlecode.com/svn/trunk/website-images/qc_workflow_knime_pt7.png" border="0" height="280" width="280">
+'></a>
+
+You can click on each part of the workflow image to follow to the wiki-site with detailed information about that part.
+
+[![](http://qcml.googlecode.com/svn/trunk/website-images/qc_workflow_knime_pt1.png)](http://code.google.com/p/qcml/wiki/SimpleQCWorkflowPreprocessing)![http://qcml.googlecode.com/svn/trunk/website-images/qc_workflow_knime_pt2.png](http://qcml.googlecode.com/svn/trunk/website-images/qc_workflow_knime_pt2.png)
+[![](http://qcml.googlecode.com/svn/trunk/website-images/qc_workflow_knime_pt3.png)](http://code.google.com/p/qcml/wiki/SimpleQCWorkflowIDratio)[![](http://qcml.googlecode.com/svn/trunk/website-images/qc_workflow_knime_pt4.png)](http://code.google.com/p/qcml/wiki/SimpleQCWorkflowMassaccuracy)
+[![](http://qcml.googlecode.com/svn/trunk/website-images/qc_workflow_knime_pt5.png)](http://code.google.com/p/qcml/wiki/SimpleQCWorkflowFractionalmasses)[![](http://qcml.googlecode.com/svn/trunk/website-images/qc_workflow_knime_pt6.png)](http://code.google.com/p/qcml/wiki/SimpleQCWorkflowTIC)
+![http://qcml.googlecode.com/svn/trunk/website-images/qc_workflow_knime_pt7.png](http://qcml.googlecode.com/svn/trunk/website-images/qc_workflow_knime_pt7.png)
+
+First we have to load a mzML file with picked MS1 level. This will be handed to the preprocessing _metanode_. In KNIME, a _metanode_ is comprising other nodes for sake of assessability, e.g. a subworkflow.
+The [preprocessing](SimpleQCWorkflowPreprocessing.md) node is performing feature detection and identification, each resulting in a file.
+We now can give the QCCalculator the three files we have to calculate basic statistics and agglomerate quality data we need later to apply more advanced quality metrics. All will be stored in a qcML file, which will make it easy to access the data we need. We will add more data and hand the extended file over to the next step.
+The [ID Ratio](SimpleQCWorkflowIDratio.md) metanode will create a plot of the measured spectra vs. the identified spectra in a m/z vs. RT map. The plot will be included in the qcML file, which will be handed over to the [Mass Accuracy](SimpleQCWorkflowMassaccuracy.md) metanode.
+Here, the accuracy of the measurement will be analysed by reference to the identifications. The calculated median deviation and the corresponding plot will add to the qcML file.
+In the following [Fractional Mass](SimpleQCWorkflowFractionalmasses.md) metanode we will use a external reference file of theoretical masses to plot the experimentally aquired fractional masses on the theoretical possible.
+The last metanode is plotting the [total ion current](SimpleQCWorkflowTIC.md) of the experiment.
+After we have all the plots and QC values we want, we can get rid of the verbose or residual data we were collecting in order to be able to calculate everything we want. The QCShrinker node will take care of that. Afterwards, the qcML file will end up right where we want it to.
+
+## detailed QC workflow ##
+
+We see, that the first part is the same as with the simple QC workflow, except for the additional _image to report_ nodes. These recieve the plots we also put inside the qcML file for that they will be available in the reporting step. The following parts are new and give a insight of what is possible with qcML. Again, you can click on the parts to get to the details page of that part.
+
+![http://qcml.googlecode.com/svn/trunk/website-images/detailed_workflow_pt1.png](http://qcml.googlecode.com/svn/trunk/website-images/detailed_workflow_pt1.png)<br />
+![http://qcml.googlecode.com/svn/trunk/website-images/detailed_workflow_pt2.png](http://qcml.googlecode.com/svn/trunk/website-images/detailed_workflow_pt2.png)
+[![](http://qcml.googlecode.com/svn/trunk/website-images/detailed_workflow_pt3.png)](http://code.google.com/p/qcml/wiki/extractQPxml)
+[![](http://qcml.googlecode.com/svn/trunk/website-images/detailed_workflow_pt4.png)](http://code.google.com/p/qcml/wiki/extractATgkn)
+[![](http://qcml.googlecode.com/svn/trunk/website-images/detailed_workflow_pt5.png)](http://code.google.com/p/qcml/wiki/extractATopenms)
+
+After the workflow is done, we can click the  open report button in KNIME
+![http://qcml.googlecode.com/svn/trunk/website-images/detailed_workflow_openreport.png](http://qcml.googlecode.com/svn/trunk/website-images/detailed_workflow_openreport.png) <br />
+and be directed to the report page. There, you can click the generate report button dropdown and choose the report form of your choice and where to save it to. For example like [here](http://qcml.googlecode.com/svn/trunk/example/report.pdf).
+
+# Try it yourself #
+
+Download the examples from [here](https://code.google.com/p/qcml/wiki/Downloads).
+  * Extract the zip file to your /tmp directory. This will create the qcML folder, containing all the data you need to get started.
+  * Start KNIME
+  * Import the workflow zips from /tmp/qcML via File|Import KNIME Workflow|select archive file
+  * Open the simple QC workflow
+  * Make sure, all input file nodes are set correctly. Reset the nodes if neccessary.
+  * Run the workflow and inspect the file created at /tmp/qcML/test.qcML in your browser (not IE).

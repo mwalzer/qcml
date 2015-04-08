@@ -1,0 +1,29 @@
+#PrimeXS basic QC metrics correspondence to QC parameters
+
+# MetaData #
+
+|instrumentsettings | ..and basic file content info | NA |
+|:------------------|:------------------------------|:---|
+|DB searchsettings | engine params | NA |
+
+# Basic ID results #
+
+|#mis. clevages | after FDR | NA |
+|:--------------|:----------|:---|
+|#mod. peptides | after FDR | NA |
+|mass accuracy | delta ppm | NA |
+|enzyme contamination | (#chymo+#trypt)/#trypt | NA |
+|distribution rec./id. MS2 | id ratio | NA |
+
+
+# Targeted experiments (when available) #
+
+|targeted stats. | target hits in mz (with FWHM,RT,Int) | NA |
+|:---------------|:-------------------------------------|:---|
+
+
+# Aquisition details #
+
+|stability | tic | NA |
+|:---------|:----|:---|
+|saturation | detector-saturation (not available in mzml!) | NA |
